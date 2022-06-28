@@ -226,7 +226,7 @@ func GetDb() (*sql.DB, error) {
 	//DSN (Data Source Name)数据源连接格式:[username[:password]@][protocol[(address)]]/dbname[?param1=value1&...&paramN=valueN]
 	//这里我们可以不选择数据库,或者增加可选参数,比如timeout(建立连接超时时间)
 	//mysqlConnStr := fmt.Sprintf("%s:%s@tcp(%s:%d)/mysql?&charset=utf8&parseTime=True&loc=Local&timeout=5s", username, password, host, port)
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?timeout=5s", DbUser, DbPassWord, DbHost, DbPort, DbName)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?timeout=5s", DbUser, DbPassWord, DbHost, DbPort, DbName)
 	open, err := sql.Open("mysql", dsn)
 	if err != nil {
 		log.Printf("配置连接出错:%s\n", err.Error())
